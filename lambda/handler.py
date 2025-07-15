@@ -24,10 +24,7 @@ def lambda_handler(event, context):
     body = json.loads(event.get("body", "{}"))
     messages = body.get("messages", [])
     try:
-        print(messages)
         huggingface = callHuggingFace(messages)
-        print(huggingface)
-        print(huggingface.choices)
         return {
             "statusCode": 200,
             "body": json.dumps({
